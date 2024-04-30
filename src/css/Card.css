@@ -1,0 +1,76 @@
+/*flip카드를 위한 전체 바깥 영역 크기*/
+.flip { 
+width: 200px;
+height: 250px;
+margin:0 auto;
+perspective: 1100px;
+/* 보고 있는 요쇼의 위치를 추정하여 원근감으로 3D 환경을 만듭니다.	
+   3D transform와 같이 자주 사용됩니다. */
+}
+
+/*감싸는 내부 card디자인 크기*/
+.card {
+width: 100%; 
+height: 100%; 
+position: relative;/* 하위 요소를 위한 기준점 */
+transition: 0.4s;/* 전이되는 시간 0.4초 설정 */
+transform-style: preserve-3d;
+/* 해당 컨테이너 영역을 삼차원 영역으로 활용하게 됩니다. */
+cursor: pointer;
+border-radius: 5px;
+}	
+
+
+
+.front, .back {
+/* card클래스 기준으로 
+   left:0px, top:0px잡고
+   꽉 채우기 */
+position: absolute;
+width: 100%; 
+height: 100%;
+backface-visibility: hidden;
+/* 변형이 가해져서 요소의 뒷면이 보여지게 될 때, 
+이 속성으로 숨기거나 보여지게 할 수 있습니다. */
+border-radius: 10px;
+}
+
+/* 앞면 디자인 */
+.front {
+background: red; 
+transform: rotateY(180deg);
+/* 앞면은 회전되어 안보임 */
+}
+.front>img{
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+}
+
+/* 뒷면 디자인 */
+.back { 
+background: royalblue; 
+
+}
+.back:hover{
+    opacity: 0.9;
+}
+
+.back>img{
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+}
+
+.flip:hover .card {
+/* flip클래스에 호버 되면 card클래스에 Y축 회전 */
+/* transform: rotateY(180deg); */
+/* 호버로 잘되는지 테스트하고
+   아래 클래스값 따로 만들어서 
+   리액트 조건부 클래스 활용하도록 */
+}
+
+.flipped{
+    transform: rotateY(180deg);
+    /* Y축 회전된 상태 */
+}

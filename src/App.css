@@ -1,0 +1,22 @@
+
+*{
+  margin:0;
+  padding:0;
+}
+
+.App{
+  width:400px;
+  height:400px;
+  background-color: aqua;
+  margin:0 auto;
+  margin-top:20px;
+  border-radius: 10px;
+}
+
+.App>h1{
+  background-color: aquamarine;
+  text-align: center;
+  margin-bottom: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
